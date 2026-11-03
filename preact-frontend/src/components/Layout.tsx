@@ -1,5 +1,4 @@
 import type { ComponentChildren } from 'preact'
-import { isAuthenticated, signout, user } from '@/store/auth'
 import NavLink from '@/components/NavLink'
 import ThemeToggle from '@/components/ThemeToggle'
 
@@ -26,51 +25,6 @@ export default function Layout({ children }: LayoutProps) {
             <NavLink href="/" end class={navLinkClass}>
               Play
             </NavLink>
-
-            {/* demo:start — removed by `bun run init` */}
-            <NavLink href="/demo" class={navLinkClass}>
-              Routing Demo
-            </NavLink>
-            {/* demo:end */}
-
-            {isAuthenticated.value ? (
-              <NavLink href="/users" class={navLinkClass}>
-                Users
-              </NavLink>
-            ) : null}
-
-            {isAuthenticated.value ? (
-              <NavLink href="/todos" class={navLinkClass}>
-                Bucket List
-              </NavLink>
-            ) : null}
-
-            {isAuthenticated.value ? (
-              <>
-                <span class="font-mono text-xs text-ink-dim max-sm:hidden">
-                  {user.value?.email}
-                </span>
-                <button
-                  class="font-mono text-xs uppercase tracking-widest text-ink-dim transition-colors hover:text-flame"
-                  onClick={signout}
-                >
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <NavLink
-                href="/login"
-                class={({ isActive }) =>
-                  `border px-3 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors ${
-                    isActive
-                      ? 'border-lime bg-lime text-accent-ink'
-                      : 'border-void-line text-ink hover:border-lime hover:text-lime'
-                  }`
-                }
-              >
-                Sign In
-              </NavLink>
-            )}
 
             <ThemeToggle />
           </div>

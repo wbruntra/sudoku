@@ -13,14 +13,6 @@ export default function NotFoundPage() {
         >
           Back to Home
         </a>
-        {/* demo:start — removed by `bun run init` */}
-        <a
-          href="/demo"
-          class="border border-void-line px-4 py-2 font-mono text-xs font-semibold uppercase tracking-widest text-ink transition-colors hover:border-lime hover:text-lime"
-        >
-          Go to Demo
-        </a>
-        {/* demo:end */}
       </div>
     </div>
   )

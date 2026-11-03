@@ -4,7 +4,6 @@
   "type": "module",
   "workspaces": [
     "backend",
-    "frontend",
     "preact-frontend",
     "shared",
     "database"
@@ -20,10 +19,11 @@
     "frontend:preact": "bun run --cwd preact-frontend dev",
     "phone": "bun run --parallel backend phone:frontend",
     "phone:frontend": "bun run --cwd preact-frontend dev:tailnet",
-    "build": "bun run --cwd frontend build",
+    "build": "bun run --cwd preact-frontend build",
+    "deploy": "bun run --cwd preact-frontend deploy",
     "test": "bun run --cwd backend test && bun run --cwd preact-frontend test",
-    "lint": "bun run --cwd frontend lint && bun run --cwd preact-frontend lint",
-    "typecheck": "bun run --cwd backend typecheck && bun run --cwd database typecheck && bun run --cwd frontend typecheck && bun run --cwd preact-frontend typecheck",
+    "lint": "bun run --cwd preact-frontend lint",
+    "typecheck": "bun run --cwd backend typecheck && bun run --cwd database typecheck && bun run --cwd preact-frontend typecheck",
     "check": "bun run format:check && bun run typecheck && bun run lint && bun run test",
     "db:generate": "bun run --cwd database db:generate",
     "db:migrate": "bun run --cwd database db:migrate",

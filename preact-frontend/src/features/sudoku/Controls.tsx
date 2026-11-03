@@ -13,6 +13,7 @@ import {
   multiSelect,
   pressDigit,
   selection,
+  toggleMultiSelect,
   undo,
   type Mode,
 } from '@/features/sudoku/store'
@@ -162,7 +163,7 @@ export default function Controls() {
           Lock
         </Action>
         <Action
-          onClick={() => (multiSelect.value = !multiSelect.value)}
+          onClick={toggleMultiSelect}
           active={multiSelect.value}
           title="Tap cells to add them to the selection"
         >

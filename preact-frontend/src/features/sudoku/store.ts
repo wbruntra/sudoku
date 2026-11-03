@@ -117,6 +117,16 @@ export function selectCell(i: number, extend = false) {
   }
 }
 
+/** Turning multi off collapses the selection to its last cell so single-select feels normal. */
+export function toggleMultiSelect() {
+  batch(() => {
+    multiSelect.value = !multiSelect.value
+    if (!multiSelect.value && selection.value.length > 1) {
+      selection.value = [selection.value[selection.value.length - 1]]
+    }
+  })
+}
+
 export function moveSelection(dr: number, dc: number) {
   const from = selection.value.at(-1) ?? 40
   const r = (Math.floor(from / 9) + dr + 9) % 9

@@ -6,6 +6,8 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages serves project sites from /<repo>/; `bun run deploy` sets this.
+  base: process.env.VITE_BASE ?? '/',
   plugins: [preact(), tailwindcss()],
   resolve: {
     alias: {
