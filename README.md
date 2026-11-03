@@ -40,7 +40,7 @@ The game itself is a static Preact app and runs entirely in the browser.
 | `bun run dev`             | Run the frontend and backend in parallel                        |
 | `bun run frontend:preact` | Run just the frontend                                           |
 | `bun run phone`           | Dev server bound to the Tailscale IP, for testing on a phone    |
-| `bun run check`           | Format check, typecheck, lint, test — what CI runs              |
+| `bun run check`           | Format check, typecheck, lint, test — run before deploying      |
 | `bun run test`            | Run the test suites                                             |
 | `bun run build`           | Production build of the frontend                                |
 | `bun run deploy`          | Build with the `/sudoku/` base path and publish to GitHub Pages |
