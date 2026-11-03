@@ -8,7 +8,7 @@ interface LayoutProps {
 }
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `font-mono text-xs uppercase tracking-widest transition-colors ${
+  `font-mono text-xs uppercase tracking-widest transition-colors max-sm:hidden ${
     isActive ? 'text-lime' : 'text-ink-dim hover:text-ink'
   }`
 
@@ -16,15 +16,15 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div class="flex min-h-screen flex-col">
       <nav class="border-b border-void-line/80">
-        <div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+        <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3 sm:px-6 sm:py-5">
           <a href="/" class="group flex items-center gap-2">
             <span class="h-2 w-2 bg-lime transition-transform group-hover:scale-125" />
-            <span class="font-display text-xl italic text-ink">Scaffold</span>
+            <span class="font-display text-xl italic text-ink">Sudoku</span>
           </a>
 
-          <div class="flex items-center gap-6">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-6">
             <NavLink href="/" end class={navLinkClass}>
-              Home
+              Play
             </NavLink>
 
             {/* demo:start — removed by `bun run init` */}
@@ -47,7 +47,9 @@ export default function Layout({ children }: LayoutProps) {
 
             {isAuthenticated.value ? (
               <>
-                <span class="font-mono text-xs text-ink-dim">{user.value?.email}</span>
+                <span class="font-mono text-xs text-ink-dim max-sm:hidden">
+                  {user.value?.email}
+                </span>
                 <button
                   class="font-mono text-xs uppercase tracking-widest text-ink-dim transition-colors hover:text-flame"
                   onClick={signout}
@@ -75,7 +77,7 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </nav>
 
-      <main class="mx-auto w-full max-w-5xl flex-1 px-6 py-12">{children}</main>
+      <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-4 sm:px-6 sm:py-12">{children}</main>
     </div>
   )
 }

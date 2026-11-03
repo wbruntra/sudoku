@@ -1,7 +1,7 @@
 import { ErrorBoundary, Route, Router } from 'preact-iso'
 import Layout from '@/components/Layout'
 import ProtectedRoute from '@/components/ProtectedRoute'
-import HomePage from '@/pages/HomePage'
+import SudokuPage from '@/pages/SudokuPage'
 import AuthPage from '@/pages/AuthPage'
 import UsersPage from '@/pages/UsersPage'
 import TodosPage from '@/pages/TodosPage'
@@ -16,7 +16,7 @@ export default function App() {
       <ErrorBoundary>
         <Router>
           {/* Public Routes */}
-          <Route path="/" component={HomePage} />
+          <Route path="/" component={SudokuPage} />
           <Route path="/login" component={AuthPage} />
 
           {/* Protected Routes */}

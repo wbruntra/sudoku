@@ -13,6 +13,9 @@ export default defineConfig({
     },
   },
   server: {
+    // `bun run phone` binds to the Tailscale IP; allow the machine's MagicDNS
+    // name (e.g. host.tailnet.ts.net) as well as the bare IP.
+    allowedHosts: ['.ts.net'],
     proxy: {
       '/api': {
         target: `http://localhost:${BACKEND_LOCAL_PORT}`,
