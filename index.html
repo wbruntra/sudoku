@@ -18,6 +18,16 @@
       rel="stylesheet"
     />
     <script>
+      // Restore the deep link saved by 404.html before the router reads the URL.
+      ;(function () {
+        var url = sessionStorage.getItem('spa-redirect')
+        if (url) {
+          sessionStorage.removeItem('spa-redirect')
+          history.replaceState(null, '', url)
+        }
+      })()
+    </script>
+    <script>
       // Applied before paint so the selected theme doesn't flash on load.
       ;(function () {
         var stored = localStorage.getItem('scaffold-theme')
@@ -28,7 +38,7 @@
         document.documentElement.dataset.theme = theme
       })()
     </script>
-    <script type="module" crossorigin src="/sudoku/assets/index-DZQAG9G4.js"></script>
+    <script type="module" crossorigin src="/sudoku/assets/index-DYCXbwdF.js"></script>
     <link rel="stylesheet" crossorigin href="/sudoku/assets/index-CFxy0Hh1.css">
   </head>
   <body>
